@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashSpeedChangeFactor;
     [SerializeField] private float groundDrag;
+    [SerializeField] private float swingSpeed;
 
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
@@ -63,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
         running,
         dashing,
         air,
-        grappling
+        grappling,
+        swinging
     }
     public MovementState movementState;
     
@@ -73,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     public bool wallJumping;
     public bool freeze;
     public bool activeGrapple;
+    public bool swinging;
     
     // Start is called before the first frame update
     void Start()
@@ -128,6 +131,12 @@ public class PlayerMovement : MonoBehaviour
             desiredMoveSpeed = runningSpeed;
         }
         
+        else if (swinging)
+        {
+            movementState = MovementState.swinging;
+            desiredMoveSpeed = swingSpeed;
+        }
+        
         else if (dashing)
         {
             movementState = MovementState.dashing; 
@@ -175,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = desiredMoveSpeed;
             }
         }
-        
+        Debug.Log("old " + desiredMoveSpeed);
         lastDesiredMoveSpeed = desiredMoveSpeed;    //  Merged guy's logic and mine
         lastState = movementState;                  //  
         // rb.linearVelocity = new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z);   //
@@ -186,12 +195,18 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         if (activeGrapple) return;
-        
+        // if (swinging) return;
+        if (swinging)
+        {
+            // rb.linearVelocity*= desiredMoveSpeed;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x * desiredMoveSpeed, rb.linearVelocity.y , rb.linearVelocity.z * desiredMoveSpeed);
+        }
+        ;
         if (wallRunning) return;
+        
         if (movementState == MovementState.dashing) return;
         
         Vector3 targetVelocity = rb.linearVelocity;
-        if (movementState == MovementState.dashing) return;
 
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
@@ -291,7 +306,7 @@ public class PlayerMovement : MonoBehaviour
         activeGrapple = true;
         grapplingVelocityToSet = CalculateJumpVelocity(transform.position, targetPosition, trajectoryHeight);
         StartCoroutine(InvokeSettingGrapplingVelocity());
-        StartCoroutine(InvokeResettingRestrictionsFunctions(3f));
+        // StartCoroutine(InvokeResettingRestrictionsFunctions(3f));
     }
 
 
@@ -324,6 +339,7 @@ public class PlayerMovement : MonoBehaviour
         {
             enableMovementOnNextTouch = false;
             ResetRestrictionsFunctions();
+            Debug.Log("Collision");
             GetComponent<Grappling>().StopGrapple();
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Grappling : MonoBehaviour
+public class Grappling1: MonoBehaviour
 {
 
     [Header("References")] 
@@ -43,7 +43,10 @@ public class Grappling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(grappleKey)) StartGrapple();
+        if (Input.GetKeyDown(grappleKey))
+        {
+            StartGrapple();
+        }
 
         if (cooldownTimer > 0)
         {
@@ -55,8 +58,8 @@ public class Grappling : MonoBehaviour
     {
         if (grappling)
         {
-            lineRenderer.SetPosition(0, gunTip.position);
-            // DrawRope();
+            // lineRenderer.SetPosition(0, gunTip.position);
+            DrawRope();
         }
     }
 
@@ -71,6 +74,21 @@ public class Grappling : MonoBehaviour
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, maxGrappleDistance, whatIsGrappleable))
         {
             grapplePoint = hit.point;
+            joint = pm.gameObject.AddComponent<SpringJoint>();
+            joint.autoConfigureConnectedAnchor = false;
+            joint.connectedAnchor = grapplePoint;
+            
+            float distanceFromPoint = Vector3.Distance(cameraTransform.position, grapplePoint);
+
+            // Distance grapple try to keep from grapple point
+            joint.maxDistance = distanceFromPoint * 0.8f;
+            joint.minDistance = distanceFromPoint * 0.25f;
+
+            joint.spring = 4.5f;
+            joint.damper = 7f;
+            joint.massScale = 4.5f;
+            
+            lineRenderer.positionCount = 2;
             StartCoroutine(InvokeGrappleFunction(true, grappleDelayTime));
         }
         else
@@ -79,9 +97,8 @@ public class Grappling : MonoBehaviour
             StartCoroutine(InvokeGrappleFunction(false, grappleDelayTime));
         }
 
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(1, grapplePoint);
+        // lineRenderer.enabled = true;
+        // lineRenderer.SetPosition(1, grapplePoint);
     }
 
     private void DrawRope()
@@ -115,7 +132,7 @@ public class Grappling : MonoBehaviour
         playerCamScript.DoFov(FOVWhileGrappling);
         
         pm.GrapplingJumpToPosition(grapplePoint, highestPointOnArc);
-        StartCoroutine(InvokeGrappleFunction(false, 1f));
+        // StartCoroutine(InvokeGrappleFunction(false, 1f));
     }
     
     public void StopGrapple()
@@ -127,7 +144,7 @@ public class Grappling : MonoBehaviour
         cooldownTimer = cooldown;
         lineRenderer.positionCount = 0;
         lineRenderer.enabled = false;
-        // Destroy(joint);
+        Destroy(joint);
     }
 
     public bool IsGrappling()
