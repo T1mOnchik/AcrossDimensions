@@ -9,7 +9,6 @@ public class Grappling : MonoBehaviour
     [SerializeField]private Transform cameraTransform;
     [SerializeField]public Transform gunTip;
     [SerializeField]private LayerMask whatIsGrappleable;
-    // [SerializeField] private LineRenderer lineRenderer;
     
     [Header("Grapple")]
     [SerializeField]private float maxGrappleDistance;
@@ -72,6 +71,7 @@ public class Grappling : MonoBehaviour
         {
             grapplePoint = hit.point;
             StartCoroutine(InvokeGrappleFunction(true, grappleDelayTime));
+            playerCamScript.EnableSpeedEffect(true);
         }
         else
         {
@@ -120,6 +120,7 @@ public class Grappling : MonoBehaviour
     
     public void StopGrapple()
     {
+        playerCamScript.EnableSpeedEffect(false);
         playerCamScript.DoFov(FOVDefault);
         pm.freeze = false;
         pm.activeGrapple = false;

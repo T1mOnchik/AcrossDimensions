@@ -10,6 +10,7 @@ public class PlayerCam : MonoBehaviour
     
     [SerializeField]private float mouseSensitivity;
     [SerializeField] private Transform cameraHolder;
+    [SerializeField] private GameObject speedEffect;
     
     public Transform orientation;
     private float xRotation;
@@ -101,5 +102,10 @@ public class PlayerCam : MonoBehaviour
             yield return null;
         }
         transform.localRotation = originalRotation;
+    }
+
+    public void EnableSpeedEffect(bool enable)
+    {
+        speedEffect.SetActive(enable);
     }
 }
