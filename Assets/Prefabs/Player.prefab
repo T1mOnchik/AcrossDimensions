@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7306062029142647201}
   - component: {fileID: 572037725621384270}
-  - component: {fileID: 2210904835620263206}
   - component: {fileID: 7703693011818770541}
   - component: {fileID: 2263498322240050837}
   - component: {fileID: 7249594069790138627}
+  - component: {fileID: 6823200331691460677}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -87,21 +87,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2210904835620263206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474993979589077820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270532d4ee2ad2b4c841ce70b8018644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 500
-  cameraHolder: {fileID: 984588547472304843}
-  orientation: {fileID: 72899567986176930}
 --- !u!114 &7703693011818770541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +152,21 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &6823200331691460677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474993979589077820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc79beac3dbff6647bbc4f0ceff75601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 200
+  cameraHolder: {fileID: 984588547472304843}
+  orientation: {fileID: 72899567986176930}
 --- !u!1 &3204217442133489060
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,11 +176,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6904880598292109555}
-  - component: {fileID: 2017852799990303583}
-  - component: {fileID: 9216015769108690188}
-  - component: {fileID: 7518269793932117293}
-  - component: {fileID: 1803481025871589641}
   - component: {fileID: 5198257742160197915}
+  - component: {fileID: 2092991872544600675}
+  - component: {fileID: 7766835946055936402}
+  - component: {fileID: 4199228796427442838}
+  - component: {fileID: 2598430193419677140}
+  - component: {fileID: 7162680670666432590}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -207,121 +208,6 @@ Transform:
   - {fileID: 984588547472304843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2017852799990303583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aba5aaad7366dc4d9d4145b5af1e428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runningSpeed: 20
-  dashSpeed: 100
-  dashSpeedChangeFactor: 200
-  groundDrag: 4
-  jumpForce: 25
-  jumpCooldown: 0.1
-  airMultiplier: 0.8
-  maxYSpeed: 15
-  playerHeight: 5.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  maxSlopeAngle: 60
-  orientation: {fileID: 72899567986176930}
-  moveDirection: {x: 0, y: 0, z: 0}
-  movementState: 3
-  dashing: 0
-  wallRunning: 0
-  wallJumping: 0
-  freeze: 0
-  activeGrapple: 0
---- !u!114 &9216015769108690188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f31a1582b075e642a09ef2f67cdc858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 72899567986176930}
-  playerCam: {fileID: 7306062029142647201}
-  dashForce: 110
-  dashUpwardForce: 10
-  dashTime: 0.1
-  maxDashYSpeed: 10
-  playerCamScript: {fileID: 2210904835620263206}
-  FOVWhileDashing: 105
-  horizontalDashCameraRotationAngle: 10
-  cooldown: 0.9
-  useCameraForward: 0
-  allowAllDirections: 1
-  disableGravity: 1
-  resetVel: 1
---- !u!114 &7518269793932117293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bd2d59d3e5db5488a9802e6566d6c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 64
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  maxWallRunTime: 1.5
-  wallClimbingSpeed: 20
-  wallJumpUpForce: 10
-  wallJumpSideForce: 10
-  wallCheckDistance: 1.5
-  minJumpHeight: 3
-  exitWallTime: 0.2
-  jumpingTime: 0.25
-  orientation: {fileID: 72899567986176930}
-  playerCamScript: {fileID: 2210904835620263206}
-  fov: 100
-  tilt: 17
---- !u!114 &1803481025871589641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a62dba86f6ffca4fa8fe04fbb5fd5ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pm: {fileID: 0}
-  cameraTransform: {fileID: 7306062029142647201}
-  gunTip: {fileID: 3415107627791350714}
-  whatIsGrappleable:
-    serializedVersion: 2
-    m_Bits: 64
-  lineRenderer: {fileID: 5394584891090270660}
-  maxGrappleDistance: 100
-  grappleDelayTime: 0
-  overshootYAxis: 2
-  cooldown: 0.9
-  grappleKey: 324
-  playerCamScript: {fileID: 2210904835620263206}
-  FOVWhileGrappling: 100
 --- !u!54 &5198257742160197915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -349,6 +235,149 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &2092991872544600675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204217442133489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b0fca203633fe45bc56d8546acb84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runningSpeed: 40
+  dashSpeed: 100
+  dashSpeedChangeFactor: 200
+  groundDrag: 4
+  swingSpeed: 80
+  jumpForce: 25
+  jumpCooldown: 0.1
+  airMultiplier: 0.7
+  maxYSpeed: 15
+  playerHeight: 5.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  maxSlopeAngle: 60
+  orientation: {fileID: 72899567986176930}
+  moveDirection: {x: 0, y: 0, z: 0}
+  movementState: 3
+  dashing: 0
+  wallRunning: 0
+  wallJumping: 0
+  freeze: 0
+  activeGrapple: 0
+  swinging: 0
+--- !u!114 &7766835946055936402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204217442133489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa4a260ba4020f4f841d49aa1e97650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 72899567986176930}
+  playerCam: {fileID: 7306062029142647201}
+  dashForce: 210
+  dashUpwardForce: 10
+  dashTime: 0.1
+  maxDashYSpeed: 10
+  playerCamScript: {fileID: 6823200331691460677}
+  FOVWhileDashing: 105
+  horizontalDashCameraRotationAngle: 10
+  cooldown: 0.9
+  useCameraForward: 0
+  allowAllDirections: 1
+  disableGravity: 1
+  resetVel: 1
+--- !u!114 &4199228796427442838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204217442133489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2096568c0f27146a1492a3c4891652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  maxWallRunTime: 1.5
+  wallClimbingSpeed: 20
+  wallJumpUpForce: 10
+  wallJumpSideForce: 10
+  wallCheckDistance: 1.5
+  minJumpHeight: 3
+  exitWallTime: 0.2
+  jumpingTime: 0.25
+  orientation: {fileID: 72899567986176930}
+  playerCamScript: {fileID: 6823200331691460677}
+  fov: 100
+  tilt: 15
+--- !u!114 &2598430193419677140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204217442133489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c09bed45498184ab227a0133df3a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 7306062029142647201}
+  gunTip: {fileID: 3415107627791350714}
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 64
+  maxGrappleDistance: 200
+  grappleDelayTime: 0
+  overshootYAxis: 2
+  grapplePoint: {x: 0, y: 0, z: 0}
+  cooldown: 0.3
+  grappleKey: 324
+  playerCamScript: {fileID: 6823200331691460677}
+  FOVWhileGrappling: 100
+  grappling: 0
+--- !u!114 &7162680670666432590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204217442133489060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bc3f4e3ffd15843afb0065a8f6d54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 7306062029142647201}
+  gunTip: {fileID: 3415107627791350714}
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 64
+  orientation: {fileID: 72899567986176930}
+  swingKey: 323
+  maxGrappleDistance: 200
+  grapplePoint: {x: 0, y: 0, z: 0}
+  horizontalThrustForce: 700
+  forwardThrustForce: 200
+  extendCableSpeed: 20
+  predictionSphereCastRadius: 8
+  predictionCastPoint: {fileID: 0}
 --- !u!1 &3231874912509013292
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +391,7 @@ GameObject:
   - component: {fileID: 3578370874726193677}
   - component: {fileID: 5172713816091888257}
   - component: {fileID: 5394584891090270660}
+  - component: {fileID: 1952122482109468948}
   m_Layer: 0
   m_Name: GrapplingGun
   m_TagString: Untagged
@@ -566,6 +596,60 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1952122482109468948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231874912509013292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdb5e756e1de9a4eae2f7e63ef9f0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pm: {fileID: 2092991872544600675}
+  swinging: {fileID: 7162680670666432590}
+  grappling: {fileID: 2598430193419677140}
+  quality: 500
+  damper: 8
+  strength: 800
+  velocity: 10
+  waveCount: 5
+  waveHeight: 8
+  affectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 7.4468527
+      outSlope: 7.4468527
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.043945365
+      value: 1.3272547
+      inSlope: 3.5522778
+      outSlope: 3.5522778
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.34229702
+      outSlope: -0.34229702
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4989311428885267255
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984588547472304843}
+  - component: {fileID: 658207717569213395}
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -630,6 +715,19 @@ Transform:
   - {fileID: 3450175170423903823}
   m_Father: {fileID: 6904880598292109555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658207717569213395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5349183422034343664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296ebda18a87e084cb3d78b2bf5dc9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 7306062029142647201}
 --- !u!1 &6901241032319066927
 GameObject:
   m_ObjectHideFlags: 0
