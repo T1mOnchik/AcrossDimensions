@@ -87,6 +87,7 @@ public class WallRunning : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
+        if (!enabled) return;
         pm.wallJumping = false;
         wallAttached = other.gameObject.layer == 7;
         if (wallAttached)
