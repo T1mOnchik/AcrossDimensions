@@ -13,6 +13,7 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        other.gameObject.GetComponent<TransitionEffect>().StartTransition();
         other.transform.position = checkpoint.position;
     }
 }
