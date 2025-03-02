@@ -27,7 +27,6 @@ public class Dashing : MonoBehaviour
     [SerializeField]private float horizontalDashCameraRotationAngle;
     private float FOVDefault;
     
-    
     [Header("Cooldown")]
     [SerializeField]private float cooldown;
     private float cooldownTimer;
@@ -107,22 +106,27 @@ public class Dashing : MonoBehaviour
         // float defaultFOV = mainCam.fieldOfView;
         // mainCam.fieldOfView *= FOVmultiplier;
         if (isDashHorizontal)
+        {
             playerCamScript.DoRotation(dashTime, horizontalDashCameraRotationAngle, (horizontalInput > 0 ? 1 : -1), 1);
+            playerCamScript.EnableHorizontalSpeedEffect((horizontalInput > 0), true);
+        }
         else
-            playerCamScript.DoFov(FOVWhileDashing);
-        if (!isDashHorizontal)
         {
             playerCamScript.DoFov(FOVWhileDashing);
+            playerCamScript.EnableSpeedEffect(true);
         }
         yield return new WaitForSeconds(dashTime);
         pm.dashing = false;
         pm.maxYSpeed = defaultMaxYSpeed;
         playerCamScript.DoFov(FOVDefault);
-        // mainCam.fieldOfView = defaultFOV;
         if (disableGravity)
         {
             rb.useGravity = true;
         }
+        
+        yield return new WaitForSeconds(0.25f);
+        playerCamScript.EnableSpeedEffect(false);
+        playerCamScript.EnableHorizontalSpeedEffect((horizontalInput > 0), false);
     }
 
     private Vector3 GetDirection(Transform forwardT)

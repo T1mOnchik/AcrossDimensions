@@ -11,6 +11,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField]private float mouseSensitivity;
     [SerializeField] private Transform cameraHolder;
     [SerializeField] private GameObject speedEffect;
+    [SerializeField] private GameObject speedEffectRight;
+    [SerializeField] private GameObject speedEffectLeft;
     
     public Transform orientation;
     private float xRotation;
@@ -107,5 +109,13 @@ public class PlayerCam : MonoBehaviour
     public void EnableSpeedEffect(bool enable)
     {
         speedEffect.SetActive(enable);
+    }
+
+    public void EnableHorizontalSpeedEffect(bool isRight, bool enable) // right = true; left = false; 
+    {
+        if (isRight)
+            speedEffectRight.SetActive(enable);
+        else
+            speedEffectLeft.SetActive(enable);
     }
 }

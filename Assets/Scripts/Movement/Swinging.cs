@@ -10,7 +10,8 @@ public class Swinging : MonoBehaviour
     [SerializeField]private Transform cameraTransform;
     [SerializeField]public Transform gunTip;
     [SerializeField]private LayerMask whatIsGrappleable;
-    // [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private PlayerCam playerCameraScript;
+    
     private Rigidbody rb;
     [SerializeField]private Transform orientation;
     
@@ -84,24 +85,15 @@ public class Swinging : MonoBehaviour
             joint.damper = 7f;
             joint.massScale = 4.5f;
             
+            playerCameraScript.EnableSpeedEffect(true);
     }
 
     void StopSwinging()
     {
-        // lineRenderer.positionCount = 0;
         pm.swinging = false;
-        // lineRenderer.enabled = false;
         Destroy(joint);
+        playerCameraScript.EnableSpeedEffect(false);
     }
-    
-    // private void DrawRope()
-    // {
-    //     lineRenderer.positionCount = 2;
-    //     if (!joint) return;
-    //     lineRenderer.enabled = true;
-    //     lineRenderer.SetPosition(0, gunTip.position);
-    //     lineRenderer.SetPosition(1, grapplePoint);
-    // }
 
     private void OdmGearMovement()
     {

@@ -170,6 +170,7 @@ public class WallRunning : MonoBehaviour
 
     private void StartWallRun()
     {
+        playerCamScript.EnableSpeedEffect(true);
         pm.wallRunning = true;
         // playerCamScript.DoRotation(0.3f, 10f, (wallNormal > 0 ? 1 : -1), 2);
         playerCamScript.DoFov(fov);
@@ -217,7 +218,8 @@ public class WallRunning : MonoBehaviour
 
     private void StopWallRun()
     {
-        pm.wallRunning = false;   
+        pm.wallRunning = false;
+        playerCamScript.EnableSpeedEffect(false);
         playerCamScript.DoFov(90f);
         playerCamScript.DoTilt(0f);
         
