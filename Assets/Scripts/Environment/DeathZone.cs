@@ -15,6 +15,8 @@ public class DeathZone : MonoBehaviour
     {
         other.gameObject.GetComponent<TransitionEffect>().StartTransition();
         other.transform.position = checkpoint.position;
+        other.transform.rotation = checkpoint.rotation;
+        other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
     }
 
     public void SetNewCheckpoint(Transform newCheckpoint)

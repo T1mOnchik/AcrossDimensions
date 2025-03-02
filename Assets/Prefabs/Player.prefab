@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2263498322240050837}
   - component: {fileID: 7249594069790138627}
   - component: {fileID: 6823200331691460677}
+  - component: {fileID: 4108726009646181302}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -173,6 +174,103 @@ MonoBehaviour:
   speedEffectRight: {fileID: 0}
   speedEffectLeft: {fileID: 0}
   orientation: {fileID: 72899567986176930}
+--- !u!82 &4108726009646181302
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474993979589077820}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 06d920ac61041414386e5ef26dfa5847, type: 3}
+  m_Resource: {fileID: 8300000, guid: 06d920ac61041414386e5ef26dfa5847, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3204217442133489060
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +290,7 @@ GameObject:
   - component: {fileID: 3611260410705401130}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,12 +353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b0fca203633fe45bc56d8546acb84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningSpeed: 40
-  dashSpeed: 100
-  dashSpeedChangeFactor: 200
+  runningSpeed: 21
+  dashSpeed: 50
+  dashSpeedChangeFactor: 80
   groundDrag: 4
   swingSpeed: 80
-  jumpForce: 25
+  jumpForce: 28
   jumpCooldown: 0.1
   airMultiplier: 0.7
   maxYSpeed: 15
@@ -312,7 +410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c2096568c0f27146a1492a3c4891652, type: 3}
   m_Name: 
@@ -342,7 +440,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41c09bed45498184ab227a0133df3a05, type: 3}
   m_Name: 
@@ -368,7 +466,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3204217442133489060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9bc3f4e3ffd15843afb0065a8f6d54d, type: 3}
   m_Name: 
@@ -378,13 +476,13 @@ MonoBehaviour:
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 64
-  playerCameraScript: {fileID: 0}
+  playerCameraScript: {fileID: 6823200331691460677}
   orientation: {fileID: 72899567986176930}
   swingKey: 323
   maxGrappleDistance: 200
   grapplePoint: {x: 0, y: 0, z: 0}
-  horizontalThrustForce: 700
-  forwardThrustForce: 200
+  horizontalThrustForce: 400
+  forwardThrustForce: 100
   extendCableSpeed: 20
   predictionSphereCastRadius: 8
   predictionCastPoint: {fileID: 0}
@@ -424,9 +522,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whitePanel: {fileID: 0}
-  closeDuration: 1
-  openDuration: 1
-  holdTime: 0.2
+  closeDuration: 0.2
+  openDuration: 0.2
+  holdTime: 0.6
 --- !u!1 &3231874912509013292
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +577,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231874912509013292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -562,7 +660,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0050f33f489a7b146963cbbdf1a5812b, type: 2}
+  - {fileID: 2100000, guid: 4d56704a41dae6849813b21195960cac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130791d3e20646d2b6d81688877b0909, type: 3}
   m_Name: 'Valley-OutlineSettings [Disabled by Default]'
   m_EditorClassIdentifier: 
-  edgeColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  edgeColor: {r: 0, g: 0, b: 0, a: 1}
   thickness: 1
-  resolutionInvariant: 1
+  resolutionInvariant: 0
   fadeWithDistance: 1
-  fadeRangeStart: 10
-  fadeRangeEnd: 250
+  fadeRangeStart: 0
+  fadeRangeEnd: 180
   useDepth: 1
   minDepthThreshold: 0
   maxDepthThreshold: 21.85
@@ -30,7 +30,7 @@ MonoBehaviour:
   renderEvent: 550
   outlineOnly: 0
   applyInSceneView: 1
-  effectMaterial: {fileID: 0}
+  effectMaterial: {fileID: 380168944343152361}
 --- !u!21 &380168944343152361
 Material:
   serializedVersion: 8
@@ -46,7 +46,6 @@ Material:
   - OUTLINE_FADE_OUT
   - OUTLINE_USE_DEPTH
   - OUTLINE_USE_NORMALS
-  - RESOLUTION_INVARIANT_THICKNESS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,12 +75,12 @@ Material:
     - _ColorThresholdMin: 0.1
     - _DepthThresholdMax: 21.85
     - _DepthThresholdMin: 0
-    - _FadeRangeEnd: 250
-    - _FadeRangeStart: 10
+    - _FadeRangeEnd: 180
+    - _FadeRangeStart: 0
     - _NormalThresholdMax: 0
     - _NormalThresholdMin: 0
     - _Thickness: 1
     m_Colors:
-    - _EdgeColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

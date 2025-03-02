@@ -67,7 +67,7 @@ Material:
     - _AllowAlphaOverflow: 0
     - _BumpScale: 1
     - _CameraDistanceFadeClose: 0
-    - _CameraDistanceFadeFar: 10
+    - _CameraDistanceFadeFar: 26.9
     - _Cutoff: 0.5
     - _Depth: 500
     - _DetailNormalMapScale: 1
@@ -87,11 +87,11 @@ Material:
     - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UvFadeX: 0.7
-    - _UvFadeY: 0.99
+    - _UvFadeX: 1
+    - _UvFadeY: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.6039216}
     - _ColorSecondary: {r: 0.10232314, g: 0.1981132, b: 0.015886439, a: 1}
     - _ColorShadows: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
